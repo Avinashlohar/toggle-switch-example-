@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Toggle Style Starts */
+        .toggle-input {
+            display: none;
+        }
+
+        .toggle-label {
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-input:checked+.toggle-label {
+            background-color: rgb(205, 205, 14);
+        }
+
+        .toggle-input:checked+.toggle-label::after,
+        .toggle-input:not(:checked)+.toggle-label::after {
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            line-height: 20px;
+            padding: 0 5px;
+        }
+
+        .toggle-input:checked+.toggle-label::after {
+            content: 'On';
+        }
+
+        .toggle-input:not(:checked)+.toggle-label::after {
+            content: 'Off';
+            justify-content: end;
+        }
+
+        .toggle-label::before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            transition: 0.2s;
+        }
+
+        .toggle-input:checked+.toggle-label::before {
+            left: calc(100% - 19px);
+        }
+
+        /* Toggle Style end */
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="toggle" class="toggle-input" />
+    <label for="toggle" class="toggle-label"></label>
+</body>
+
+</html>
